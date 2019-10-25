@@ -1,0 +1,98 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .item {
+    text-decoration: none;
+    max-width: 100px;
+    margin-bottom: 20px;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    &.item-1 {
+      height: 50px;
+      .inner {
+        display: block;
+        position: relative;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        &:before {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 50px;
+          background-color: black;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(-45deg);
+          transition: ease-out .2s all;
+        }
+        &:after {
+          content: "";
+          position: absolute;
+          height: 2px;
+          width: 50px;
+          background-color: black;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%) rotate(45deg);
+          transition: ease-out .2s all;
+        }
+      }
+      .label {
+        opacity: 0;
+        transition: linear .3s all;
+      }
+      &:hover,
+      &:focus {
+        .inner {
+          &:before {
+            transform: translate(-50%, 0%) rotate(0);
+            top: 25%;
+          }
+          &:after {
+            transform: translate(-50%, 0%) rotate(0);
+            top: 76%;
+          }
+        }
+        .label {
+          opacity: 1;
+        }
+      }
+    }
+    &.item-2 {
+      width: 60px;
+      height: 60px;
+      position: relative;
+      border: 1px solid black;
+      border-radius: 50%;
+      &:before,
+      &:after {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 2px;
+        background-color: black;
+        transition: 0.3s ease-out;
+        left: 50%;
+        top: 50%;
+      }
+      &:after {
+        transform: translate(-50%, -50%) rotate(45deg);
+      }
+      &:before {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+    }
+    &:hover,
+    &:focus {
+      &:before,
+      &:after {
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+    }
+  }
+}
